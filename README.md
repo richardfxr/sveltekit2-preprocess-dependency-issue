@@ -1,38 +1,18 @@
-# create-svelte
+# About
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This repo contains a minimal reproduction of SvelteKit v2's SCSS preprocess dependency issue.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## How to reporduce
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+# install all dependencies
+npm i
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+# run local dev server
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
+The following message should show up in your terminal:
 ```bash
-npm run build
+[vite-plugin-svelte] root_directory/src/routes/+page.svelte svelte.preprocess returned this file as a dependency of itself. This can be caused by an invalid configuration or importing generated code that depends on .svelte files (eg. tailwind base css)
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
